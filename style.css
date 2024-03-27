@@ -1,0 +1,229 @@
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 1s ease;
+}
+
+.black-background {
+    background-color: #000000 !important;
+}
+
+.birthday-gift {
+    position: relative;
+}
+
+.birthday-gift {
+    transition: transform 0.5s ease; /* Add transition for smooth animation */
+}
+
+.birthday-gift.clicked {
+    transform: translateY(50px); /* Adjust the value as needed */
+}
+
+.birthday-gift:before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 183px;
+    left: -10px;
+}
+
+input#click {
+    display: none;
+}
+
+.gift {
+    position: relative;
+    width: 230px;
+    height: 185px;
+    background-color: #e9c46a;
+}
+
+.gift:before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 185px;
+    background-color: #e76f51;
+    left: 100px;
+}
+
+.gift:after {
+    content: "";
+    position: absolute;
+    box-shadow: inset 0 10px rgba(0, 0, 0, 0.3);
+    width: 230px;
+    height: 100px;
+    left: 0px;
+}
+
+.click {
+    position: absolute;
+    background-color: #e9c46a;
+    width: 270px;
+    height: 40px;
+    top: -40px;
+    left: -20px;
+    transform-origin: bottom left;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.click:before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 40px;
+    background-color: #e76f51;
+    left: 120px;
+}
+
+.click:after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 0;
+    border-bottom: 30px solid #e76f51;
+    border-top: 30px solid #e76f51;
+    border-left: 0px solid transparent;
+    border-right: 30px solid transparent;
+    transform: rotate(-90deg);
+    left: 113px;
+    top: -47px;
+}
+
+#click:checked+.click {
+    transform: rotate(-110deg) scaleX(0.85);
+}
+
+.wishes {
+    position: absolute;
+    transition: .5s;
+    color: #f8f6f6;
+    font-size: 34px;
+    text-align: center;
+    z-index: -100;
+    left: 5px;
+}
+
+#click:checked~.wishes {
+    transform: translateY(-100px);
+}
+
+@keyframes fire3 {
+    100% {
+        transform: translateX(20px) translateY(-93px);
+        opacity: 0.3;
+    }
+}
+
+@keyframes fire2 {
+    100% {
+        transform: translateX(-5px) translateY(-90px);
+        opacity: 0.3;
+    }
+}
+
+@keyframes fire {
+    100% {
+        transform: translateX(-25px) translateY(-95px);
+        opacity: 0.3;
+    }
+}
+
+@keyframes color {
+    from {
+        background-color: #d00000;
+    }
+
+    to {
+        background-color: #0081a7;
+    }
+}
+
+@keyframes color2 {
+    from {
+        background-color: #8cff00;
+    }
+
+    to {
+        background-color: #1d2d44;
+    }
+}
+
+@keyframes balloonMove {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-30vh); /* Adjust as needed */
+        opacity: 1;
+    }
+}
+
+.balloon {
+    display: inline-block;
+    width: 80px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 1s ease-in-out; /* Smooth transition */
+    z-index: 10;
+    opacity: 0;
+}
+
+#click:checked ~ .balloons-container .balloon {
+    animation: balloonMove 3s forwards; /* Apply the animation when the checkbox is checked */
+}
+
+.balloon:before {
+    content: "▲";
+    font-size: 12px; /* smaller size */
+    color: hsl(215, 30%, 50%);
+    display: block;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: -6px; /* adjusted position */
+    z-index: -100;
+}
+
+.balloon:after {
+    display: inline-block;
+    top: 100px; /* shorter string length */
+    position: absolute;
+    height: 100px; /* shorter string length */
+    width: 1px;
+    margin: 0 auto;
+    content: "";
+    background: hsl(203, 86%, 56%);
+}
+
+/* Different balloon colors */
+.balloon:nth-child(1) {
+    background: hsl(245, 40%, 65%);
+    animation-duration: 3.5s;
+}
+
+/* .balloon:nth-child(2) {
+    background: hsl(245, 40%, 65%);
+    animation-duration: 3.5s;
+}
+.balloon:nth-child(3) {
+    background: hsl(50, 80%, 70%);
+}
+.balloon:nth-child(4) {
+    background: hsl(120, 80%, 70%);
+}
+.balloon:nth-child(5) {
+    background: hsl(300, 62%, 51%);
+} */
